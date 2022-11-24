@@ -1,0 +1,21 @@
+<div *ngFor="let toDo of toDos.reverse()" class="todo-content">
+  <h2 [ngClass]="{'todo-complete': completedToDos.includes(toDo)}">{{ toDo.title }}</h2>
+  <div class="todo-container">
+    <input type="checkbox" id="doing" name="doing" class="todo-checkbox" (click)="completedItem(toDo)">
+    <button (click)="onViewTodo(toDo.id)">VIEW</button>
+    <button (click)="onDeleteToDo(toDo)">DELETE</button>
+  </div>
+</div>
+
+<div *ngFor="let toDo of completedToDos" class="todo-content">
+  <h2 [ngClass]="{'todo-complete': completedToDos.includes(toDo)}">{{ toDo.title }}</h2>
+  <div class="todo-container">
+    <input type="checkbox" id="doing" name="doing" class="todo-checkbox" (click)="completedItem(toDo)" checked>
+    <button (click)="onViewTodo(toDo.id)" [disabled]="true">VIEW</button>
+    <button (click)="onDeleteToDo(toDo)">DELETE</button>
+  </div>
+</div>
+
+
+
+

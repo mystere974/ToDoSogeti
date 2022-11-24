@@ -1,0 +1,23 @@
+<div class="form-card">
+  <h2>Add To Do</h2>
+  <form [formGroup]="todoForm">
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input type="text" id="title" formControlName="title" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" type="text" formControlName="description" rows="2"></textarea>
+    </div>
+    <div class="action-buttons">
+      <button type="submit" (click)="onSubmitForm()" [disabled]="todoForm.invalid">Enregistrer</button>
+  </div>
+  </form>
+</div>
+
+<div class="todo-card" *ngIf="toDoPreview$ | async as toDo">
+  <div>
+    <h2>{{ toDo.title }}</h2>
+    <p>Description : {{ toDo.description }}</p>
+  </div>
+</div>
